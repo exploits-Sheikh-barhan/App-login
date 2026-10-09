@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Akun Saya</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="card">
+    <h1 id="brand">Masuk atau daftar</h1>
+
+    <section id="step-email" class="step">
+      <p class="sub">Masukkan email untuk melanjutkan.</p>
+      <form id="form-email">
+        <label>
+          Email
+          <input type="email" name="email" required autocomplete="email" placeholder="nama@email.com" />
+        </label>
+        <button type="submit">Lanjut</button>
+      </form>
+    </section>
+
+    <section id="step-login" class="step" hidden>
+      <p class="sub">Login sebagai <strong data-email></strong></p>
+      <form id="form-login">
+        <label>
+          Password
+          <input type="password" name="password" required autocomplete="current-password" />
+        </label>
+        <button type="submit">Login dengan password</button>
+      </form>
+      <button type="button" class="link" id="btn-login-otp">Login pakai kode OTP</button>
+      <button type="button" class="link" data-back>Ganti email</button>
+    </section>
+
+    <section id="step-signup" class="step" hidden>
+      <p class="sub">Email belum terdaftar. Buat password untuk <strong data-email></strong></p>
+      <form id="form-signup">
+        <label>
+          Password (min. 8 karakter)
+          <input type="password" name="password" minlength="8" maxlength="72" required autocomplete="new-password" />
+        </label>
+        <label>
+          Ulangi password
+          <input type="password" name="confirm" minlength="8" maxlength="72" required autocomplete="new-password" />
+        </label>
+        <button type="submit">Daftar &amp; kirim OTP</button>
+      </form>
+      <button type="button" class="link" data-back>Ganti email</button>
+    </section>
+
+    <section id="step-otp" class="step" hidden>
+      <p class="sub">Masukkan kode 6 digit yang kami kirim ke <strong data-email></strong></p>
+      <form id="form-otp">
+        <input
+          type="text"
+          name="code"
+          class="otp"
+          inputmode="numeric"
+          pattern="[0-9]{6}"
+          maxlength="6"
+          required
+          autocomplete="one-time-code"
+          placeholder="000000"
+        />
+        <button type="submit">Verifikasi</button>
+      </form>
+      <button type="button" class="link" id="btn-resend">Kirim ulang kode</button>
+      <button type="button" class="link" data-back>Ganti email</button>
+    </section>
+
+    <section id="step-dashboard" class="step" hidden>
+      <p class="sub">Kamu login sebagai</p>
+      <p class="email" data-email></p>
+      <button type="button" id="btn-logout">Logout</button>
+    </section>
+
+    <p id="msg" class="msg" role="status" aria-live="polite"></p>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
